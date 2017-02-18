@@ -33,8 +33,9 @@
        (keep :youtube-id)
        (map youtube-api-url)))
 
-(defn- seconds-from-response [{:keys [body status]}]
+(defn- seconds-from-response
   "Gets length in seconds of the response of the YouTube API."
+  [{:keys [body status]}]
   (case status
     200       (->> (json/decode body true)
                    (specter/select [:items specter/ALL :contentDetails :duration])
@@ -60,8 +61,8 @@
       total-hours*))
 
 (defn titles
-  [videos]
   "Get all titles of YouTube videos."
+  [videos]
   (->> videos
        titles-with-ids
        (keep :title)))
