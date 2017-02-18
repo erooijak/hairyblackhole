@@ -1,8 +1,8 @@
 (ns hairyblackhole.youtube
   (:require [cheshire.core :as json]
             [clojure.string :as str]
-            [hairyblackhole.config :refer [settings]]
             [com.rpl.specter :as specter]
+            [hairyblackhole.config :refer [settings]]
             [hairyblackhole.util :refer [to-seconds]]
             [org.httpkit.client :as http]))
 
